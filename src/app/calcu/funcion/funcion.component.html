@@ -1,0 +1,24 @@
+<!--Directivas ngSwitch-->
+<section class="m-0 row justify-content-center ">
+    <section class=" col-auto text-center border border-primary bg-success">
+        <h3>OPERACIONES CON DOS NÚMEROS</h3>
+            <p>Ingrese primer valor: <input class="border border-primary text-primary"   type="number" name="num1"  [(ngModel)]="num1"></p>
+            <p>Ingrese segundo valor: <input class="border border-primary text-primary" type="number" name="num2"  [(ngModel)]="num2"></p>
+            <p>
+                <select [(ngModel)]="op" class="border border-primary">
+                    <option value="ninguno" [ngStyle]="{'color':'red'}">Seleccione operación</option>
+                    <option value="suma" [ngStyle]="{'color':'blue'}">Suma</option>
+                    <option value="resta" [ngStyle]="{'color':'orange'}">Resta</option>
+                    <option value="multi" [ngStyle]="{'color':'darkgreen'}" >Multiplicagit ión</option>
+                    <option value="divi" [ngStyle]="{'color':'violet'}" >División</option>
+                </select>
+            </p>
+            <span [ngSwitch]="op" class="fw-bolder bg-light">
+                <span *ngSwitchCase="'suma'" [ngStyle]="{'color':'blue'}">El resultado es: {{num1 + num2}}</span>
+                <span *ngSwitchCase="'resta'" [ngStyle]="{'color':'orange'}" >El resultado es:  {{num1 - num2}}</span>
+                <span *ngSwitchCase="'multi'" [ngStyle]="{'color':'darkgreen'}" >El resultado es:  {{num1 * num2}}</span>
+                <span *ngSwitchCase="'divi'" [ngStyle]="{'color':'violet'}"  >El resultado es: {{num1 / num2}}</span>
+                <span *ngSwitchDefault  [ngStyle]="{'color':'red'}">Seleccione operación</span>
+            </span>
+    </section>
+</section>
